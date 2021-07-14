@@ -61,6 +61,27 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
+
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `
+    <div class="movements__row">
+          <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+
+          <div class="movements__value">${mov}</div>
+    </div>
+    `;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+
+displayMovements(account1.movements);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -91,3 +112,26 @@ movements.forEach(function (movement, index, array) {
     console.log(`Movement${index + 1}: You withdrew ${Math.abs(movement)}`);
   }
 });
+
+// Test Data
+
+// Data 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
+// Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
+
+const checkDogs = function (dogsJulia, dogsKate) {
+  const newArr = [...dogsJulia.slice(1, -2), ...dogsKate];
+  const newArr1 = dogsJulia.slice(1, -2).concat(dogsKate);
+
+  newArr1.forEach((el, index) => {
+    if (el >= 3) {
+      console.log(
+        `Dog 🐶 number ${index + 1} is an adult, and is ${el} years old`
+      );
+    } else {
+      console.log(`Dog number ${index + 1} is still a puppy`);
+    }
+  });
+};
+
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+checkDogs([9, 16, 6, 5, 8, 3], [10, 5, 6, 1, 4]);
