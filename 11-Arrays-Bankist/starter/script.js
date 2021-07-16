@@ -82,6 +82,23 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+const createUsernames = function(accs){
+  accs.forEach(function(acc){
+    acc.username = user.owner
+    .toLowerCase()
+    .split(' ')
+    .map(named => named[0])
+    .join('');
+  })
+}
+
+const createUsernames = function (user) {
+  const username = 
+  return username;
+};
+
+console.log(createUsernames('Steven Thomas Williams'));
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -95,43 +112,67 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
-for (const [index, movement] of movements.entries()) {
-  if (movement > 0) {
-    console.log(`Movement${index + 1}: You deposited ${movement}`);
-  } else {
-    console.log(`Movement${index + 1}: You withdrew ${Math.abs(movement)}`);
-  }
-}
+// for (const [index, movement] of movements.entries()) {
+//   if (movement > 0) {
+//     console.log(`Movement ${index + 1}: You deposited ${movement}`);
+//   } else {
+//     console.log(`Movement ${index + 1}: You withdrew ${Math.abs(movement)}`);
+//   }
+// }
 
-console.log(`**********FOREACH***************`);
+// console.log(`**********FOREACH***************`);
 
-movements.forEach(function (movement, index, array) {
-  if (movement > 0) {
-    console.log(`Movement${index + 1}: You deposited ${movement}`);
-  } else {
-    console.log(`Movement${index + 1}: You withdrew ${Math.abs(movement)}`);
-  }
-});
+// movements.forEach(function (movement, index, array) {
+//   if (movement > 0) {
+//     console.log(`Movement ${index + 1}: You deposited ${movement}`);
+//   } else {
+//     console.log(`Movement ${index + 1}: You withdrew ${Math.abs(movement)}`);
+//   }
+// });
 
-// Test Data
+// // Test Data
 
-// Data 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
-// Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
+// // Data 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
+// // Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
 
-const checkDogs = function (dogsJulia, dogsKate) {
-  const newArr = [...dogsJulia.slice(1, -2), ...dogsKate];
-  const newArr1 = dogsJulia.slice(1, -2).concat(dogsKate);
+// const checkDogs = function (dogsJulia, dogsKate) {
+//   const newArr = [...dogsJulia.slice(1, -2), ...dogsKate];
+//   const newArr1 = dogsJulia.slice(1, -2).concat(dogsKate);
 
-  newArr1.forEach((el, index) => {
-    if (el >= 3) {
-      console.log(
-        `Dog 🐶 number ${index + 1} is an adult, and is ${el} years old`
-      );
-    } else {
-      console.log(`Dog number ${index + 1} is still a puppy`);
-    }
-  });
-};
+//   newArr1.forEach((el, index) => {
+//     if (el >= 3) {
+//       console.log(
+//         `Dog 🐶 number ${index + 1} is an adult, and is ${el} years old`
+//       );
+//     } else {
+//       console.log(`Dog number ${index + 1} is still a puppy`);
+//     }
+//   });
+// };
 
-checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
-checkDogs([9, 16, 6, 5, 8, 3], [10, 5, 6, 1, 4]);
+// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+// checkDogs([9, 16, 6, 5, 8, 3], [10, 5, 6, 1, 4]);
+
+// const euruToUsd = 1.1;
+
+// const movementsUSD = movements.map(mov => mov * euruToUsd);
+// console.log(movements);
+// console.log(movementsUSD);
+
+// const movementsDescriptions = movements.map((mov, i, array) => {
+//   if (mov > 0) {
+//     return `Movement ${i + 1}: You deposited ${mov}`;
+//   } else {
+//     return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
+//   }
+// });
+
+// const movementsDescriptions1 = movements.map((mov, i) => {
+//   return `Movement ${i + 1}: You ${
+//     mov > 0 ? 'deposited' : 'withdrew'
+//   } ${Math.abs(mov)}`;
+// });
+
+// console.log(movementsDescriptions1);
+
+const user = 'Steven Thomas Williams'; // stw
