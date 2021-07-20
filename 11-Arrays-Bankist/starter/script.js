@@ -82,22 +82,25 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
-const createUsernames = function(accs){
-  accs.forEach(function(acc){
-    acc.username = user.owner
-    .toLowerCase()
-    .split(' ')
-    .map(named => named[0])
-    .join('');
-  })
-}
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov);
+  labelBalance.textContent = `${balance} EUR`;
+};
+calcDisplayBalance(account1.movements);
 
-const createUsernames = function (user) {
-  const username = 
-  return username;
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
 };
 
-console.log(createUsernames('Steven Thomas Williams'));
+createUsernames(accounts);
+
+// console.log(createUsernames('Steven Thomas Williams'));
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -111,6 +114,21 @@ const currencies = new Map([
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+
+console.log(movements);
+console.log(deposits);
+
+const withdrawals = movements.filter(function (mov) {
+  return mov < 0;
+});
+
+console.log(withdrawals);
+
+const balance = movements.reduce((acc, cur, i, arr) => acc + cur);
+console.log(balance);
 /////////////////////////////////////////////////
 // for (const [index, movement] of movements.entries()) {
 //   if (movement > 0) {
@@ -175,4 +193,14 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // console.log(movementsDescriptions1);
 
-const user = 'Steven Thomas Williams'; // stw
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) {
+    return acc;
+  } else {
+    return mov;
+  }
+}, movements[0]);
+
+console.log(max);
+
+// Coding Challenge Two
