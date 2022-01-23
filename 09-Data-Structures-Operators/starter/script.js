@@ -331,6 +331,12 @@ console.log(gameEventsValues);
 const gameEventsUnique = [...new Set(gameEventsValues)];
 console.log(gameEventsUnique);
 
+// Removing False Yellow Card
+
+const wrongYellow = gameEvents.delete(64);
+console.log(wrongYellow);
+console.log(gameEvents);
+
 // PERSONAL SOLUTION
 
 // const eventsBall = [...gameEvents];
