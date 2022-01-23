@@ -224,6 +224,45 @@ Odd of victory ${game.team2}: ${game.odds.team2}`);
 
 // const scorers = game.scored;
 
+// function toObject(arr) {
+//   var rv = {};
+//   for (var i = 0; i < arr.length; ++i)
+//     if (arr[i] !== undefined) rv[i] = arr[i];
+//   return rv;
+// }
+
+// console.log(toObject(scorers))
+
+
+// const obj ={};
+// // console.log('Second attempt: ',scorers2);
+// for(const [i, player] of  game.scored.entries()) {
+//   console.log(i, player)
+//   // {{player}: 1} = obj;
+
+//   console.log(obj);
+  
+// };
+
+// BONUS SOLUTION
+// So the solution is to loop over the array, and add the array elements as object properties, and then increase the count as we encounter a new occurence of a certain element
+const scorers = {};
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+
+console.log(scorers);
+
+const goalsArr =['Saka', 'Martineli', 'Ordegaad', 'Saka', 'Martineli', 'Ozil', 'Ozil']
+const scorers1 = {};
+for (const player of goalsArr) {
+  // console.log(scores1);?
+  scorers1[player] ? scorers1[player]++ : (scorers1[player] = 1);
+  console.log(player)
+}
+
+console.log(scorers1);
+
 // let result = {};
 
 // scorers.forEach(function (x) {
