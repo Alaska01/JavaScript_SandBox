@@ -331,11 +331,27 @@ console.log(gameEventsValues);
 const gameEventsUnique = [...new Set(gameEventsValues)];
 console.log(gameEventsUnique);
 
-// Removing False Yellow Card
+// 2. Removing False Yellow Card
 
 const wrongYellow = gameEvents.delete(64);
 console.log(wrongYellow);
 console.log(gameEvents);
+
+// 3. An Event happens in every ?? Minutes
+console.log('Number of events: ', gameEvents.size);
+console.log(`An event occurred in every ${90/(gameEvents.size)} minutes`);
+
+// 4. Loop over the event and log to console
+for(const [minutes, gameEvent] of gameEvents.entries()) {
+  // console.log(minutes, gameEvent)
+  if(minutes <= 45){
+    console.log(`FIRST HALF ${minutes}: ${gameEvent}`)
+  } else {
+    console.log(`SECOND HALF ${minutes}: ${gameEvent}`)
+  }
+
+};
+
 
 // PERSONAL SOLUTION
 
