@@ -355,36 +355,7 @@ for(const [minutes, gameEvent] of gameEvents.entries()) {
 
 // PERSONAL SOLUTION
 
-// const eventsBall = [...gameEvents];
-// const events1 = [];
-// const events2 = [];
-// for (const [e1, e2] of eventsBall) events1.push(e1) && events2.push(e2);
-// console.log(events1, events2);
-// let events = [];
-// events = new Set(events1);
-// console.log(events);
-// events;
-
-// for (let i = 0; i < events1.length; i++) {
-//   if (events1[i] === 64) {
-//     events1.splice(i, 1);
-//     events2.splice(i, 1);
-//   }
-// }
-// console.log(events1, events2);
-
-// let averageEvent = 90 / events1.length;
-// console.log(averageEvent);
-
-// for (let i = 0; i < events1.length; i++) {
-//   if (events1[i] <= 45) {
-//     console.log(`[FIRST HALF] ${events1[i]}:
-//     ${events2[i]}`);
-//   } else {
-//     console.log(`[SECOND HALF] ${events1[i]}:
-//     ${events2[i]}`);
-//   }
-// }
+// Delete A less elegant solution
 
 // PERSONAL SOLUTION
 
