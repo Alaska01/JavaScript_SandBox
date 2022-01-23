@@ -321,6 +321,16 @@ const gameEvents = new Map([
   [92, '🔶 Yellow card'],
 ]);
 
+console.log(gameEvents);
+
+// 1. Personal Solution: Array of different events that happened no duplicated
+
+const gameEventsValues = gameEvents.values();
+console.log(gameEventsValues);
+
+const gameEventsUnique = [...new Set(gameEventsValues)];
+console.log(gameEventsUnique);
+
 // PERSONAL SOLUTION
 
 // const eventsBall = [...gameEvents];
