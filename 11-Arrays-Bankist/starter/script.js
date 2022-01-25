@@ -193,6 +193,36 @@ console.log(balance);
 
 // console.log(movementsDescriptions1);
 
+
+//  Conversion of Dogs Age to Humans
+
+const dAges = [5, 2, 1, 4, 15, 8, 3]
+
+const calcAverageHumanAge = function(ages){
+
+  const dogsAges = ages;
+  const dogsAges1 = []
+  dogsAges.map(function(val){
+    if(val <=2 ){
+      return dogsAges1.push(2* val);
+    } else{
+      return dogsAges1.push(16 +(2*val));
+    }
+  })
+  const adultDogs = dogsAges1.filter(val => val >= 18 );
+  const adultDogsArraySize = adultDogs.length;
+
+  const reducer = (previousValue, currentValue) => previousValue + currentValue;
+  const ageAdultDogsTotal = adultDogs.reduce(reducer)
+
+  const average = ageAdultDogsTotal/adultDogsArraySize
+
+  return average;
+
+};
+
+console.log(calcAverageHumanAge(dAges));
+
 const max = movements.reduce((acc, mov) => {
   if (acc > mov) {
     return acc;
