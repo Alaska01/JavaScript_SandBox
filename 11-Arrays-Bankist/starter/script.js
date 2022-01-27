@@ -35,6 +35,14 @@ const account4 = {
 
 const accounts = [account1, account2, account3, account4];
 
+// Implementing the find method using for of loop
+
+for (const account of accounts){
+  if (account.owner=== 'Jessica Davis' ){
+  console.log(account)
+  }
+}
+
 // Elements
 const labelWelcome = document.querySelector('.welcome');
 const labelDate = document.querySelector('.date');
@@ -105,6 +113,8 @@ createUsernames(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+
+
 
 const currencies = new Map([
   ['USD', 'United States dollar'],
@@ -194,7 +204,7 @@ console.log(balance);
 // console.log(movementsDescriptions1);
 
 
-//  Conversion of Dogs Age to Humans
+//  Conversion of Dogs Age to Humans Personal Solutiom
 
 const dAges = [5, 2, 1, 4, 15, 8, 3]
 
@@ -221,7 +231,36 @@ const calcAverageHumanAge = function(ages){
 
 };
 
-console.log(calcAverageHumanAge(dAges));
+// console.log(calcAverageHumanAge(dAges));
+
+//  Solution by Jonas
+
+const calcAverageHumanAge1 = function(ages){
+  const humanAges = ages.map(age => age <= 2 ? 2* age : 16 + 4 * age)
+  const adults = humanAges.filter(age => age >= 18)
+  // const average = adults.reduce((acc, age) => acc + age, 0) / adults.length;
+  // const average = adults.reduce((acc, age) => acc + age/ adults.length, 0);
+
+  const average = adults.reduce((acc, age, i, arr) => acc + age/ arr.length, 0);
+  console.log(average);
+}
+
+
+// const avg1 = calcAverageHumanAge1([5, 2, 4, 1, 15, 8, 3]);
+
+// const avg2 = calcAverageHumanAge1([16, 6, 10, 5, 6, 1, 4]);
+
+const calcAverageHumanAgeArrow = ages => {
+  const humanAges = ages.map(age => age <= 2 ? 2* age : 16 + 4 * age).
+  filter(age => age >= 18).
+  reduce((acc, age, i, arr) => acc + age/ arr.length, 0);
+  console.log(humanAges);
+}
+
+
+const avg1 = calcAverageHumanAgeArrow([5, 2, 4, 1, 15, 8, 3]);
+
+const avg2 = calcAverageHumanAgeArrow([16, 6, 10, 5, 6, 1, 4]);
 
 const max = movements.reduce((acc, mov) => {
   if (acc > mov) {
@@ -234,3 +273,9 @@ const max = movements.reduce((acc, mov) => {
 console.log(max);
 
 // Coding Challenge Two
+
+// Rolling A dice in 100 places in an array
+
+const dice = Math.trunc(Math.random() *6 + 1)
+const diceArray100 = Array.from({length: 100}, (_, i)=> Math.trunc(Math.random() *6 + 1))
+console.log(diceArray100);
