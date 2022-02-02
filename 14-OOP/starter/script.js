@@ -99,3 +99,47 @@ carDec.accelerate();
 carDec.break();
 carDec.break();
 console.log(carDec.speedUS);
+
+// Coding Challenge 3
+
+const CarC3 = function(make, speed){
+    this.make = make;
+    this.speed = speed;
+}
+
+CarC3.prototype.accelerate = function(){
+    this.speed += 10;
+    console.log(`The ${this.make} is speeding at ${this.speed} km/h`);
+}
+
+CarC3.prototype.break = function(){
+    this.speed -= 5;
+    console.log(`The ${this.make} is speeding at ${this.speed} km/h`);
+}
+
+const EV3 = function(make, speed, charge){
+    CarC3.call(this, make, speed)
+        this.charge = charge;
+}
+
+//  Link Prototypes
+
+EV3.prototype = Object.create(CarC3.prototype)
+
+//  Add methods to prototye of EV
+
+// EV3.prototype.charge
+EV3.prototype.chargeBattery = function(chargeTo){
+    this.charge = chargeTo;
+}
+
+EV3.prototype.accelerate = function(){
+    this.speed += 20;
+    this.charge--;
+    console.log(`The ${this.make} is speeding at ${this.speed} km/h with a charge of ${this.charge}`);
+}
+
+const tesla = new EV3('Tesla', 120, 23)
+console.log(tesla.chargeBattery(85))
+tesla.break()
+tesla.accelerate();
